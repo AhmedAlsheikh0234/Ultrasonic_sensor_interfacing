@@ -8,7 +8,6 @@
 #define F_CPU 8000000UL
 #include <util/delay.h>
 #include "LCD_driver.h"
-#include "DIO_driver.h"
 #include "ultrasonic.h"
 #include "macros.h"
 int main(void)
