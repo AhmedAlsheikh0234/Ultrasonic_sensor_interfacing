@@ -8,12 +8,17 @@
 #define F_CPU 8000000UL
 #include <util/delay.h>
 #include "LCD_driver.h"
+#include "DIO_driver.h"
 #include "ultrasonic.h"
 #include "macros.h"
+#include "led.h"
 int main(void)
 {
 	unsigned short distance,rise_period,all_period,high_period;
 	LCD_init();
+	led_init('C',4);
+	led_init('C',6);
+	led_init('C',7);
 	ultrasonic_init('D',0);
     while(1)
     {
@@ -36,16 +41,44 @@ int main(void)
 		{
 			LCD_clearscr();
 			LCD_sendstring("out of range");
+			led_off('C',4);
+			led_off('C',6);
+			led_off('C',7);
 			_delay_ms(400);
 			LCD_clearscr();
 		} 
-		else
+		else if (distance<=30)
 		{
 			LCD_clearscr();
 			LCD_sendstring("Distance= ");
 			LCD_sendnumber(distance);
 			LCD_sendstring("cm");
+			led_off('C',6);
+			led_off('C',7);
+			led_on('C',4);
+			_delay_ms(400);	
+		}
+		else if(distance>30&&distance<=60)
+		{
+			LCD_clearscr();
+			LCD_sendstring("Distance= ");
+			LCD_sendnumber(distance);
+			LCD_sendstring("cm");
+			led_off('C',4);
+			led_off('C',7);
+			led_on('C',6);
 			_delay_ms(400);
 		}
+		else if(distance>60&&distance<90)
+		{
+			LCD_clearscr();
+			LCD_sendstring("Distance= ");
+			LCD_sendnumber(distance);
+			LCD_sendstring("cm");
+			led_off('C',6);
+			led_off('C',4);
+			led_on('C',7);
+			_delay_ms(400);
+		}			
     }
 }
