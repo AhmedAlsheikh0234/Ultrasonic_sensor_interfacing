@@ -8,3 +8,13 @@ In this code the sensor does not read distance more than 90cm (you can adjust th
 ![Capture](https://github.com/AhmedAlsheikh0234/Ultrasonic_sensor_interfacing/assets/154998275/d4601a60-c508-44c4-8d48-cd19330756ec)
 
 ![1](https://github.com/AhmedAlsheikh0234/Ultrasonic_sensor_interfacing/assets/154998275/2cffa8f9-27d6-466c-b756-5c185ffe08b7)
+# Update
+I added 3 LEDs as to simulate street light saving system
+The aim of this is to save more energy wasted on streetlights remaining on even if there isnt any car on the road 
+when a car passes by the sensor untill a distace of 30 the first LED (streetlight) comes on and when car exits its range and the distance increases untill 60 the second light is on and so on 
+When the distance increase to 90 all LEDs off as the car left the range of the sensor 
+![1](https://github.com/AhmedAlsheikh0234/Ultrasonic_sensor_interfacing/assets/154998275/a88b6e7a-9396-4e60-825d-a38a07cba49a)
+
+![2](https://github.com/AhmedAlsheikh0234/Ultrasonic_sensor_interfacing/assets/154998275/49595704-2dab-4123-b2b8-38f657a4695d)
+
+![3](https://github.com/AhmedAlsheikh0234/Ultrasonic_sensor_interfacing/assets/154998275/218c76c4-644b-4a37-81a7-aefd5cc1ad31)
